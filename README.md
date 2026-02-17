@@ -56,7 +56,6 @@
 
 ### 6. 📊 Dashboard Admin
 - Widgets de statistiques (utilisateurs, produits, commandes)
-- Graphiques des ventes (Chart.js)
 - Gestion centralisée de tous les utilisateurs
 - Alertes en temps réel
 
@@ -281,8 +280,6 @@ Les contributions sont les bienvenues ! Pour contribuer :
 - Université : ITEAM University
 - Filière : TC-06
 - Module : Dev Web 2
-- LinkedIn : [Votre profil]([https://linkedin.com/in/votre-profil](https://www.linkedin.com/in/mourad-ben-abdallah-0b692117a/))
-
 ---
 
 
