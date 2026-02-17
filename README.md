@@ -85,10 +85,9 @@ Le système implémente 4 niveaux d'accès distincts :
 ### Frontend
 - **Bootstrap 5** - Framework CSS responsive
 - **HTML5 / CSS3** - Structure et styles
-- **Chart.js** - Graphiques et statistiques
-
+- 
 ### Environnement
-- **XAMPP / WAMP** - Serveur local de développement
+- **XAMPP-XAMPPlite / WAMP** - Serveur local de développement
 - **Apache** - Serveur web
 - **phpMyAdmin** - Gestion de la base de données
 
@@ -252,18 +251,6 @@ erp_industriel/
 
 ---
 
-## 🔒 Sécurité
-
-- ✅ **Mots de passe hashés** avec `password_hash()` (Bcrypt)
-- ✅ **Requêtes préparées PDO** (protection injection SQL)
-- ✅ **Validation des données** côté serveur et client
-- ✅ **Contrôle d'accès basé sur les rôles** (RBAC)
-- ✅ **Sessions PHP sécurisées** avec vérification à chaque page
-- ✅ **Protection CSRF** (à implémenter pour production)
-
-
----
-
 ## 🗓️ Roadmap
 
 ### Version 1.0 (Actuelle) ✅
@@ -272,17 +259,6 @@ erp_industriel/
 - [x] Messagerie interne
 - [x] Dashboard Admin
 
-### Version 1.1 (Prévue)
-- [ ] Export Excel des données
-- [ ] Génération de rapports PDF
-- [ ] Graphiques avancés (Chart.js)
-- [ ] Système de backup automatique
-
-### Version 2.0 (Futur)
-- [ ] API REST
-- [ ] Application mobile
-- [ ] Notifications push
-- [ ] Multi-langues (FR/EN)
 
 ---
 
@@ -296,11 +272,6 @@ Les contributions sont les bienvenues ! Pour contribuer :
 4. Pushez vers la branche (`git push origin feature/AmazingFeature`)
 5. Ouvrez une Pull Request
 
----
-
-## 📝 License
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
 ---
 
