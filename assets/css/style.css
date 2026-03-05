@@ -1,0 +1,104 @@
+/* Usine Industriel — Global Styles */
+
+/* RH module purple */
+.bg-rh {
+    background-color: #6f42c1 !important;
+}
+
+.navbar-dark.bg-rh .navbar-brand,
+.navbar-dark.bg-rh .nav-link {
+    color: rgba(255, 255, 255, .9);
+}
+
+/* Teal for messaging */
+.bg-teal {
+    background-color: #0d9488 !important;
+}
+
+.btn-teal {
+    background-color: #0d9488;
+    border-color: #0d9488;
+    color: #fff;
+}
+
+.btn-teal:hover {
+    background-color: #0f766e;
+    border-color: #0f766e;
+    color: #fff;
+}
+
+/* Status badges */
+.badge-en_attente {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.badge-en_cours {
+    background-color: #0dcaf0;
+    color: #000;
+}
+
+.badge-termine {
+    background-color: #198754;
+    color: #fff;
+}
+
+.badge-approuve {
+    background-color: #198754;
+    color: #fff;
+}
+
+.badge-rejete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.badge-confirmee {
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+.badge-livree {
+    background-color: #198754;
+    color: #fff;
+}
+
+.badge-annulee {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+/* Stat cards */
+.stat-card {
+    border-left: 4px solid;
+    transition: transform .15s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Low stock row highlight */
+.table-low-stock {
+    background-color: #fff3cd !important;
+}
+
+/* Print styles for invoice */
+@media print {
+
+    .navbar,
+    .btn,
+    footer,
+    .no-print {
+        display: none !important;
+    }
+
+    .container {
+        max-width: 100% !important;
+    }
+
+    .card {
+        border: 1px solid #dee2e6 !important;
+        box-shadow: none !important;
+    }
+}
