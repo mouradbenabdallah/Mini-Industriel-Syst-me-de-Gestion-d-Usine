@@ -75,14 +75,15 @@ $role = $_SESSION['user']['role'] ?? '';
 <body>
 
     <!-- Barre de navigation principale -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-<?= htmlspecialchars($module_color) ?> mb-4 shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-<?= htmlspecialchars($module_color) ?> mb-0 shadow-sm">
         <div class="container-fluid px-4">
             <!-- Logo et titre du site -->
             <a class="navbar-brand fw-bold d-flex align-items-center" href="<?= BASE_URL ?>index.php">
                 <i class="bi bi-gear-fill me-2"></i> Usine Industriel
             </a>
             <!-- Bouton hamburger pour mobile -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
+                aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -182,8 +183,8 @@ $role = $_SESSION['user']['role'] ?? '';
         </div>
     </nav>
 
-    <!-- Conteneur principal -->
-    <div class="container">
+    <!-- Conteneur principal avec style -->
+    <div class="container py-4">
         <?php 
 // Affichage du message de succès (vert)
 if ($flash_success): ?>
@@ -201,3 +202,4 @@ if ($flash_error): ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
         <?php endif; ?>
+    </div>
