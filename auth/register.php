@@ -1,24 +1,22 @@
 <?php
 /**
- * Page d'inscription utilisateur
- * Permet aux nouveaux clients de cr√©er un compte
- * 
- * Projet: Usine Industriel - Syst√®me de gestion d'usine
- * Mode: Proc√©dural (sans POO)
+ * Page d'inscription - Usine Industriel
+ * Utilise uniquement Bootstrap 5 (pas de CSS personnalis√©)
  */
 
-// D√©marrage de la session pour g√©rer les donn√©es utilisateur
+// D√©marrage de la session
 session_start();
 
-// V√©rification: si l'utilisateur est d√©j√† connect√©, redirection vers l'accueil
+// Si d√©j√† connect√© ‚Üí aller au tableau de bord
 if (isset($_SESSION['user'])) {
     header('Location: ../index.php');
     exit;
 }
 
-// R√©cup√©ration d'un message d'erreur √©ventuelle (stock√© en session)
+// R√©cup√©rer le message d'erreur stock√© en session (s'il existe)
 $error = $_SESSION['error'] ?? null;
-// Suppression du message d'erreur de la session
+
+// Supprimer le message d'erreur apr√®s l'avoir lu
 unset($_SESSION['error']);
 ?>
 <!DOCTYPE html>
@@ -27,75 +25,140 @@ unset($_SESSION['error']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription ‚TNDî Usine Industriel</title>
+    <title>Inscription ‚Äî Usine Industriel</title>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Style personnalis√© -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Google Fonts ‚Äì m√™me police que le reste de l'app -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>üè≠</text></svg>">
+
+    <style>
+        /* Appliquer la m√™me police que le reste de l'application */
+        * { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
 </head>
 
-<body class="bg-light">
-    <div class="container">
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-5">
-                <!-- En-t√™te avec logo -->
-                <div class="text-center mb-4">
-                    <i class="bi bi-gear-fill text-success" style="font-size:3rem;"></i>
-                    <h2 class="mt-2 fw-bold">Usine Industriel</h2>
-                    <p class="text-muted">Cr√©er un compte client</p>
-                </div>
-                <!-- Carte d'inscription -->
-                <div class="card shadow-sm">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="mb-0"><i class="bi bi-person-plus"></i> Inscription</h5>
-                    </div>
-                    <div class="card-body p-4">
-                        <!-- Affichage des erreurs -->
-                        <?php if ($error): ?>
-                        <div class="alert alert-danger"><i class="bi bi-exclamation-triangle"></i>
-                            <?= htmlspecialchars($error) ?></div>
-                        <?php endif; ?>
+<!--
+    M√™me fond d√©grad√© bleu que la page de connexion.
+    d-flex min-vh-100 align-items-center justify-content-center = centrage total
+    py-4 = un peu d'espace vertical (utile si le formulaire est long)
+-->
+<body class="d-flex min-vh-100 align-items-center justify-content-center py-4"
+      style="background: linear-gradient(135deg, #0c4a6e, #0ea5e9);">
 
-                        <!-- Formulaire d'inscription -->
-                        <form method="post" action="register_process.php">
-                            <div class="mb-3">
-                                <label class="form-label">Nom complet</label>
-                                <input type="text" name="nom" class="form-control" required autofocus
-                                    placeholder="Votre nom">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="email" name="email" class="form-control" required
-                                    placeholder="votre@email.com">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Mot de passe</label>
-                                <input type="password" name="password" class="form-control" required
-                                    placeholder="‚TND¢‚TND¢‚TND¢‚TND¢‚TND¢‚TND¢‚TND¢‚TND¢" minlength="6">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Confirmer le mot de passe</label>
-                                <input type="password" name="password2" class="form-control" required
-                                    placeholder="‚TND¢‚TND¢‚TND¢‚TND¢‚TND¢‚TND¢‚TND¢‚TND¢">
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-success">
-                                    <i class="bi bi-person-check"></i> Cr√©er mon compte
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="card-footer text-center text-muted small">
-                        D√©j√† inscrit ? <a href="login.php" class="text-success">Se connecter</a>
-                    </div>
+    <!-- Conteneur centr√©, largeur max 460px (un peu plus large car plus de champs) -->
+    <div class="w-100 px-3" style="max-width: 460px;">
+
+        <!-- ‚îÄ‚îÄ LOGO AU-DESSUS DE LA CARTE ‚îÄ‚îÄ -->
+        <div class="text-center mb-4">
+            <div class="d-inline-flex align-items-center justify-content-center
+                        bg-white bg-opacity-25 rounded-4 mb-3"
+                 style="width:72px; height:72px; font-size:2rem; color:#fff;">
+                <i class="bi bi-gear-fill"></i>
+            </div>
+            <h1 class="text-white fw-bold fs-3 mb-1">Usine Industriel</h1>
+            <p class="text-white-50 small mb-0">Cr√©er un compte client</p>
+        </div>
+
+        <!-- ‚îÄ‚îÄ CARTE D'INSCRIPTION ‚îÄ‚îÄ -->
+        <div class="card border-0 shadow-lg rounded-4">
+            <div class="card-body p-4 p-md-5">
+
+                <!-- Titre de la carte -->
+                <h2 class="fw-bold fs-4 mb-1">
+                    <i class="bi bi-person-plus text-primary me-2"></i>Inscription
+                </h2>
+                <p class="text-muted small mb-4">
+                    Remplissez les champs ci-dessous pour cr√©er votre compte
+                </p>
+
+                <!-- Message d'erreur (ex: email d√©j√† utilis√©, mots de passe diff√©rents) -->
+                <?php if ($error): ?>
+                <div class="alert alert-danger border-0 rounded-3 py-2 small" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    <?= htmlspecialchars($error) ?>
                 </div>
+                <?php endif; ?>
+
+                <!-- ‚îÄ‚îÄ FORMULAIRE D'INSCRIPTION ‚îÄ‚îÄ -->
+                <form method="post" action="register_process.php" novalidate>
+
+                    <!-- Champ: Nom complet -->
+                    <div class="mb-3">
+                        <label for="nom" class="form-label fw-semibold small">
+                            <i class="bi bi-person text-primary me-1"></i>Nom complet
+                        </label>
+                        <input type="text" name="nom" id="nom"
+                               class="form-control rounded-3"
+                               placeholder="Votre nom et pr√©nom"
+                               required autofocus>
+                    </div>
+
+                    <!-- Champ: Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold small">
+                            <i class="bi bi-envelope text-primary me-1"></i>Adresse email
+                        </label>
+                        <input type="email" name="email" id="email"
+                               class="form-control rounded-3"
+                               placeholder="votre@email.com"
+                               required>
+                    </div>
+
+                    <!-- Champ: Mot de passe -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label fw-semibold small">
+                            <i class="bi bi-lock text-primary me-1"></i>Mot de passe
+                        </label>
+                        <input type="password" name="password" id="password"
+                               class="form-control rounded-3"
+                               placeholder="Minimum 6 caract√®res"
+                               minlength="6" required>
+                    </div>
+
+                    <!-- Champ: Confirmation du mot de passe -->
+                    <div class="mb-4">
+                        <label for="password2" class="form-label fw-semibold small">
+                            <i class="bi bi-lock-fill text-primary me-1"></i>Confirmer le mot de passe
+                        </label>
+                        <input type="password" name="password2" id="password2"
+                               class="form-control rounded-3"
+                               placeholder="R√©p√©tez votre mot de passe"
+                               required>
+                    </div>
+
+                    <!-- Bouton de soumission -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg rounded-3 fw-semibold">
+                            <i class="bi bi-person-check me-2"></i>Cr√©er mon compte
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+
+            <!-- Pied de la carte: lien vers la connexion -->
+            <div class="card-footer bg-light border-0 rounded-bottom-4 text-center py-3">
+                <span class="text-muted small">
+                    D√©j√† inscrit ?
+                    <a href="login.php" class="text-primary fw-semibold text-decoration-none">
+                        Se connecter
+                    </a>
+                </span>
             </div>
         </div>
+        <!-- fin .card -->
+
     </div>
+    <!-- fin conteneur -->
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 
+</body>
 </html>

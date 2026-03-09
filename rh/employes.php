@@ -37,7 +37,7 @@ require_once '../includes/header.php';
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="bi bi-people"></i> Liste des employés</h2>
-    <a href="employe_add.php" class="btn btn-success"><i class="bi bi-plus-lg"></i> Ajouter un employé</a>
+    <a href="employe_add.php" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Ajouter un employé</a>
 </div>
 
 <div class="card">

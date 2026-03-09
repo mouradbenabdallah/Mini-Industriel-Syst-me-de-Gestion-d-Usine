@@ -40,7 +40,7 @@ require_once '../includes/header.php';
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="bi bi-box-seam"></i> <?= htmlspecialchars($produit['nom']) ?></h2>
     <div>
-        <a href="mouvement.php?produit_id=<?= $produit['id'] ?>" class="btn btn-outline-warning">
+        <a href="mouvement.php?produit_id=<?= $produit['id'] ?>" class="btn btn-outline-secondary">
             <i class="bi bi-arrow-left-right"></i> Mouvement
         </a>
         <?php if (hasAnyRole(['admin','manager'])): ?>

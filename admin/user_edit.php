@@ -22,7 +22,7 @@ require_once '../includes/header.php';
 ?>
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="bi bi-pencil-square"></i> Modifier l'utilisateur <?= htmlspecialchars($user['nom']) ?></h2>
-    <a href="users.php" class="btn btn-outline-dark"><i class="bi bi-arrow-left"></i> Retour</a>
+    <a href="users.php" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Retour</a>
 </div>
 
 <div class="card">
@@ -64,7 +64,7 @@ require_once '../includes/header.php';
                 <input type="hidden" name="actif" value="1">
                 <?php endif; ?>
             </div>
-            <button type="submit" class="btn btn-dark"><i class="bi bi-save"></i> Enregistrer</button>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Enregistrer</button>
         </form>
     </div>
 </div>

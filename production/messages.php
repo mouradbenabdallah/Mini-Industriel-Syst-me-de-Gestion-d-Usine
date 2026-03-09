@@ -76,7 +76,7 @@ require_once '../includes/header.php';
     <!-- Colonne gauche: Formulaire d'envoi de message -->
     <div class="col-md-4">
         <div class="card">
-            <div class="card-header bg-teal text-white"><i class="bi bi-send"></i> Nouveau message</div>
+            <div class="card-header bg-primary text-white"><i class="bi bi-send"></i> Nouveau message</div>
             <div class="card-body">
                 <form method="post" action="../messages_process.php">
                     <!-- Champ caché pour la redirection après envoi -->
@@ -101,7 +101,7 @@ require_once '../includes/header.php';
                     </div>
 
                     <!-- Bouton d'envoi -->
-                    <button type="submit" class="btn btn-teal w-100"><i class="bi bi-send"></i> Envoyer</button>
+                    <button type="submit" class="btn btn-primary w-100"><i class="bi bi-send"></i> Envoyer</button>
                 </form>
             </div>
         </div>

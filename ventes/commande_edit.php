@@ -60,7 +60,7 @@ require_once '../includes/header.php';
                     <option value="annulee" <?= $commande['statut']==='annulee'?'selected':'' ?>>Annulée</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-danger"><i class="bi bi-save"></i> Enregistrer</button>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Enregistrer</button>
         </form>
     </div>
 </div>

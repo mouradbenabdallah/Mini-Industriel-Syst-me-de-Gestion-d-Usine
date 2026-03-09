@@ -57,7 +57,7 @@ require_once '../includes/header.php';
     <h2><i class="bi bi-box-seam"></i> Stock</h2>
     <!-- Bouton ajouter pour admin et manager -->
     <?php if (hasAnyRole(['admin','manager'])): ?>
-    <a href="create.php" class="btn btn-warning"><i class="bi bi-plus-lg"></i> Ajouter un produit</a>
+    <a href="create.php" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Ajouter un produit</a>
     <?php endif; ?>
 </div>
 

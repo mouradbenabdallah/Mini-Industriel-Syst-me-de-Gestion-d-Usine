@@ -90,7 +90,7 @@ require_once '../includes/header.php';
     <h2><i class="bi bi-file-earmark-text"></i> Ordre #<?= $ordre['id'] ?></h2>
     <div>
         <?php if (in_array($role, ['admin','manager'])): ?>
-        <a href="edit.php?id=<?= $ordre['id'] ?>" class="btn btn-outline-warning">
+        <a href="edit.php?id=<?= $ordre['id'] ?>" class="btn btn-outline-primary">
             <i class="bi bi-pencil"></i> Modifier
         </a>
         <?php endif; ?>

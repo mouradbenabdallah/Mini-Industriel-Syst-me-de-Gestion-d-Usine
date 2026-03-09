@@ -26,7 +26,7 @@ require_once '../includes/header.php';
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="bi bi-calendar-plus"></i> Demander un congé</h2>
-    <a href="conges.php" class="btn btn-outline-success"><i class="bi bi-arrow-left"></i> Retour</a>
+    <a href="conges.php" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Retour</a>
 </div>
 
 <div class="card">
@@ -47,7 +47,7 @@ require_once '../includes/header.php';
                 </div>
             </div>
             <div class="mt-3">
-                <button type="submit" class="btn btn-success"><i class="bi bi-save"></i> Soumettre la demande</button>
+                <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Soumettre la demande</button>
             </div>
         </form>
     </div>

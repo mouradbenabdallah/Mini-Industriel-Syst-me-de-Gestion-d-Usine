@@ -10,7 +10,7 @@ require_once '../includes/header.php';
 ?>
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="bi bi-person-plus"></i> Ajouter un utilisateur</h2>
-    <a href="users.php" class="btn btn-outline-dark"><i class="bi bi-arrow-left"></i> Retour</a>
+    <a href="users.php" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Retour</a>
 </div>
 
 <div class="card">
@@ -41,7 +41,7 @@ require_once '../includes/header.php';
                 <input type="checkbox" name="actif" class="form-check-input" id="actif" checked>
                 <label class="form-check-label" for="actif">Compte actif</label>
             </div>
-            <button type="submit" class="btn btn-dark"><i class="bi bi-save"></i> Enregistrer</button>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Enregistrer</button>
         </form>
     </div>
 </div>

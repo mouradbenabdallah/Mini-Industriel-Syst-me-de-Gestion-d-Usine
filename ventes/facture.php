@@ -72,10 +72,10 @@ require_once '../includes/header.php';
         <button onclick="window.print()" class="btn btn-outline-secondary">
             <i class="bi bi-printer"></i> Imprimer
         </button>
-        <a href="facture.php?id=<?= $id ?>&export=csv" class="btn btn-outline-success ms-1">
+        <a href="facture.php?id=<?= $id ?>&export=csv" class="btn btn-outline-secondary ms-1">
             <i class="bi bi-filetype-csv"></i> Exporter CSV
         </a>
-        <a href="commande_view.php?id=<?= $id ?>" class="btn btn-outline-danger ms-1">
+        <a href="commande_view.php?id=<?= $id ?>" class="btn btn-outline-secondary ms-1">
             <i class="bi bi-arrow-left"></i> Retour
         </a>
     </div>

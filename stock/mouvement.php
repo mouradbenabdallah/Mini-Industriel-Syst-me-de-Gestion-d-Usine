@@ -15,7 +15,7 @@ require_once '../includes/header.php';
 ?>
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="bi bi-arrow-left-right"></i> Mouvement de stock</h2>
-    <a href="index.php" class="btn btn-outline-warning"><i class="bi bi-arrow-left"></i> Retour</a>
+    <a href="index.php" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Retour</a>
 </div>
 
 <div class="card">
@@ -25,10 +25,9 @@ require_once '../includes/header.php';
                 <div class="col-md-6">
                     <label class="form-label">Produit</label>
                     <select name="produit_id" class="form-select" required>
-                        <option value="">âTND” Choisir un produit âTND”</option>
+                        <option value="">ï¿½TNDï¿½ Choisir un produit ï¿½TNDï¿½</option>
                         <?php foreach ($produits as $p): ?>
-                        <option value="<?= $p['id'] ?>"
-                            <?= $p['id'] === $selected_produit_id ? 'selected' : '' ?>>
+                        <option value="<?= $p['id'] ?>" <?= $p['id'] === $selected_produit_id ? 'selected' : '' ?>>
                             <?= htmlspecialchars($p['nom']) ?> (stock: <?= $p['quantite'] ?>)
                         </option>
                         <?php endforeach; ?>
@@ -51,7 +50,7 @@ require_once '../includes/header.php';
                 </div>
             </div>
             <div class="mt-3">
-                <button type="submit" class="btn btn-warning"><i class="bi bi-check-lg"></i> Enregistrer</button>
+                <button type="submit" class="btn btn-primary"><i class="bi bi-check-lg"></i> Enregistrer</button>
             </div>
         </form>
     </div>

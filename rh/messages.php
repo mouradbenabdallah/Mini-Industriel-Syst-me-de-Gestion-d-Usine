@@ -47,12 +47,12 @@ $module_color = 'warning';
 require_once '../includes/header.php';
 ?>
 
-<h2 class="mb-4" style="color:#6f42c1;"><i class="bi bi-envelope"></i> Messages RH</h2>
+<h2 class="mb-4"><i class="bi bi-envelope"></i> Messages RH</h2>
 
 <div class="row g-4">
     <div class="col-md-4">
         <div class="card">
-            <div class="card-header bg-teal text-white"><i class="bi bi-send"></i> Nouveau message</div>
+            <div class="card-header bg-primary text-white"><i class="bi bi-send"></i> Nouveau message</div>
             <div class="card-body">
                 <form method="post" action="../messages_process.php">
                     <input type="hidden" name="redirect" value="rh/messages.php">
@@ -70,7 +70,7 @@ require_once '../includes/header.php';
                         <label class="form-label">Message</label>
                         <textarea name="contenu" class="form-control" rows="4" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-teal w-100"><i class="bi bi-save"></i> Envoyer</button>
+                    <button type="submit" class="btn btn-primary w-100"><i class="bi bi-save"></i> Envoyer</button>
                 </form>
             </div>
         </div>

@@ -17,7 +17,7 @@ require_once '../includes/header.php';
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="bi bi-cart-plus"></i> Nouvelle commande</h2>
-    <a href="commandes.php" class="btn btn-outline-danger"><i class="bi bi-arrow-left"></i> Retour</a>
+    <a href="commandes.php" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Retour</a>
 </div>
 
 <div class="card">
@@ -58,7 +58,7 @@ require_once '../includes/header.php';
                 </div>
             </div>
             <div class="mt-3">
-                <button type="submit" class="btn btn-danger"><i class="bi bi-check-lg"></i> Passer la commande</button>
+                <button type="submit" class="btn btn-primary"><i class="bi bi-check-lg"></i> Passer la commande</button>
             </div>
         </form>
     </div>

@@ -31,7 +31,7 @@ require_once '../includes/header.php';
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="bi bi-pencil"></i> Modifier - <?= htmlspecialchars($user['nom'] ?? '') ?></h2>
-    <a href="employes.php" class="btn btn-outline-success"><i class="bi bi-arrow-left"></i> Retour</a>
+    <a href="employes.php" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Retour</a>
 </div>
 
 <div class="card">
@@ -71,7 +71,7 @@ require_once '../includes/header.php';
                 </div>
             </div>
             <div class="mt-3">
-                <button type="submit" class="btn btn-success"><i class="bi bi-save"></i> Enregistrer</button>
+                <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Enregistrer</button>
             </div>
         </form>
     </div>

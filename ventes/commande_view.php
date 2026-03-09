@@ -45,7 +45,7 @@ require_once '../includes/header.php';
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="bi bi-cart"></i> Commande #<?= $id ?></h2>
-    <a href="commandes.php" class="btn btn-outline-danger"><i class="bi bi-arrow-left"></i> Retour</a>
+    <a href="commandes.php" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Retour</a>
 </div>
 
 <div class="row g-4">

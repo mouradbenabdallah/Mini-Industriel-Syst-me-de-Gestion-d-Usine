@@ -62,7 +62,7 @@ require_once '../includes/header.php';
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="bi bi-clock-history"></i> Historique des mouvements</h2>
-    <a href="index.php" class="btn btn-outline-warning"><i class="bi bi-arrow-left"></i> Retour stock</a>
+    <a href="index.php" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Retour stock</a>
 </div>
 
 <form method="get" class="row g-2 mb-4">
@@ -77,7 +77,7 @@ require_once '../includes/header.php';
         <input type="date" name="date" class="form-control" value="<?= htmlspecialchars($date_filter) ?>">
     </div>
     <div class="col-auto">
-        <button type="submit" class="btn btn-warning"><i class="bi bi-funnel"></i> Filtrer</button>
+        <button type="submit" class="btn btn-primary"><i class="bi bi-funnel"></i> Filtrer</button>
         <a href="historique.php" class="btn btn-outline-secondary ms-1">Réinitialiser</a>
     </div>
 </form>

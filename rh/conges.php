@@ -56,7 +56,7 @@ require_once '../includes/header.php';
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="bi bi-calendar"></i> Demandes de congés</h2>
     <?php if ($role === 'employe'): ?>
-    <a href="conge_add.php" class="btn btn-success"><i class="bi bi-plus-lg"></i> Nouvelle demande</a>
+    <a href="conge_add.php" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Nouvelle demande</a>
     <?php endif; ?>
 </div>
 

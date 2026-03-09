@@ -189,41 +189,53 @@ $msg_url = BASE_URL . ($msg_pages[$role] ?? 'admin') . '/messages.php';
         style="background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary-light) 100%);">
         <div class="container-fluid px-4">
             <div class="row align-items-center py-2">
-                <!-- Partie gauche: Heure et date -->
+                <!-- Partie gauche: Bienvenue -->
                 <div class="col-md-6 d-none d-md-block">
-                    <div class="d-flex align-items-center gap-4 text-white-50 small">
+                    <div class="d-flex align-items-center gap-2 text-white-50 small">
                         <span>
-                            <i class="bi bi-clock me-1"></i>
-                            <span id="header-time"></span>
-                        </span>
-                        <span class="opacity-50">|</span>
-                        <span>
-                            <i class="bi bi-calendar3 me-1"></i>
-                            <?= date('l, d F Y') // Jour, jour du mois, mois, année ?>
+                            <i class="bi bi-person-circle me-1"></i>
+                            Bienvenue, <?= htmlspecialchars($_SESSION['user']['nom'] ?? 'Utilisateur') ?>
                         </span>
                     </div>
                 </div>
 
-                <!-- Partie droite: Liens et langue -->
+                <!-- Partie droite: Messages -->
                 <div class="col-md-6">
                     <div class="d-flex justify-content-md-end align-items-center gap-3">
-                        <a href="#" class="top-link">
-                            <i class="bi bi-headset me-1"></i>Support
+                        <a href="<?= $msg_url ?>" class="top-link position-relative">
+                            <i class="bi bi-bell me-1"></i>Messages
+                            <?php if ($unread_count > 0): ?>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                <?= $unread_count ?>
+                            </span>
+                            <?php endif; ?>
                         </a>
-                        <span class="opacity-25 text-white">|</span>
-                        <a href="#" class="top-link">
-                            <i class="bi bi-question-circle me-1"></i>Aide
-                        </a>
-                        <span class="opacity-25 text-white">|</span>
-                        <!-- Sélecteur de langue -->
+                        <!-- Profil utilisateur -->
+                        <?php
+                        $user = $_SESSION['user'];
+                        $user_initials = strtoupper(substr($user['nom'] ?? 'U', 0, 2));
+                        ?>
                         <div class="dropdown">
-                            <a class="top-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                                <i class="bi bi-globe2 me-1"></i>FR
+                            <a class="profile-trigger text-white text-decoration-none d-flex align-items-center gap-2"
+                                href="#" data-bs-toggle="dropdown">
+                                <div class="profile-avatar-sm bg-white text-dark fw-bold">
+                                    <?= $user_initials ?>
+                                </div>
+                                <span
+                                    class="d-none d-md-inline"><?= htmlspecialchars($user['nom'] ?? 'Utilisateur') ?></span>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-sm dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">🇫🇷 Français</a></li>
-                                <li><a class="dropdown-item" href="#">🇬🇧 English</a></li>
-                                <li><a class="dropdown-item" href="#">🇸🇦 العربية</a></li>
+                            <ul class="dropdown-menu dropdown-profile shadow-lg border-0 rounded-3 p-2">
+                                <li><span class="dropdown-item-text text-muted small">
+                                        <i
+                                            class="bi bi-person-circle me-1"></i><?= htmlspecialchars($user['email'] ?? '') ?>
+                                    </span></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item rounded-2" href="<?= BASE_URL ?>auth/logout.php">
+                                        <i class="bi bi-box-arrow-right me-2"></i>Déconnexion
+                                    </a></li>
                             </ul>
                         </div>
                     </div>
