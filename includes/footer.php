@@ -1,28 +1,25 @@
-<!-- ========================================
-     FOOTER SIMPLIFIÉ
-     ======================================== -->
-<footer class="footer-main mt-auto py-3" style="background: linear-gradient(135deg, #0c4a6e 0%, #0ea5e9 100%);">
-    <div class="container-fluid px-4">
-        <div class="row align-items-center">
-            <div class="col-md-6 text-center text-md-start">
-                <p class="mb-0 text-white-50 small">
-                    © <?= date('Y') ?> <strong class="text-white">Usine Industriel</strong>. Tous droits réservés.
-                </p>
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-                <span class="text-white-50 small">
-                    Système de gestion d'usine
-                </span>
-            </div>
-        </div>
-    </div>
+<!-- ══ FOOTER ═════════════════════════════════════════════════════════════════ -->
+<footer style="
+    background: linear-gradient(135deg, var(--c-dark, #0c4a6e) 0%, var(--c-mid, #0369a1) 100%);
+    padding: .9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-top: auto;
+    border-top: 1px solid rgba(255,255,255,.08);
+">
+    <span style="font-size:.75rem; color:rgba(255,255,255,.45); font-family:'Space Mono',monospace;">
+        © <?= date('Y') ?> <strong style="color:#fff;">Usine Industriel</strong>
+    </span>
+
+    <span style="font-size:.72rem; color:rgba(255,255,255,.3); letter-spacing:.04em; text-transform:uppercase;">
+        Système de gestion d'usine
+    </span>
 </footer>
 
-<!-- ========================================
-     SCRIPTS JAVASCRIPT
-     ======================================== -->
-
-<!-- Bootstrap JS - Nécessaire pour la navbar et les dropdowns -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

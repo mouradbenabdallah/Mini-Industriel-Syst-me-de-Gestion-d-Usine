@@ -114,6 +114,7 @@ CREATE TABLE IF NOT EXISTS messages (
 -- Index for fast unread count
 CREATE INDEX idx_messages_destinataire_lu ON messages(destinataire_id, lu);
 
--- Seed: admin user (password: admin123)
+-- Seed: admin user (password: admin123) - NOTE: Password must be hashed with password_hash()
+-- Hash generated: password_hash('admin123', PASSWORD_DEFAULT)
 INSERT INTO users (nom, email, password, role, actif) VALUES
-('Administrateur', 'admin@usine.local', 'admin123', 'admin', 1);
+('Administrateur', 'admin@usine.local', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', 1);
