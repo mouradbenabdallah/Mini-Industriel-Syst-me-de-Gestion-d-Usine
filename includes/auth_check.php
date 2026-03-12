@@ -1,60 +1,64 @@
 <?php
 /**
  * Vérification d'authentification
- * Ce fichier doit être inclus dans toutes les pages protégées
- * 
- * Fonctionnalités:
- * - Vérifie que l'utilisateur est connecté
- * - Vérifie que l'utilisateur a le bon rôle (si spécifié)
- * - Définit les fonctions helper pour vérifier les rôles
- * 
- * Usage:
- *   $allowed_roles = ['admin', 'manager'];
- *   require_once '../includes/auth_check.php';
- * 
- * Projet: Usine Industriel - Système de gestion d'usine
- * Mode: Procédural (sans POO)
+ * Protège les pages - vérifie que l'utilisateur est connecté et a le bon rôle
  */
 
-// Définition de BASE_URL si pas encore défini (peut être écrasé par header.php)
-if (!defined('BASE_URL')) {
-    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-    $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-    $script = $_SERVER['SCRIPT_NAME'] ?? '';
-    $base = preg_replace('#/usine_industriel/.*#', '/usine_industriel/', $script);
-    define('BASE_URL', $protocol . '://' . $host . $base);
+// ===== DÉFINIR L'URL DE BASE =====
+// Exemple: http://localhost/usine_industriel/
+if (!defined("BASE_URL")) {
+    $protocol =
+        !empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off"
+            ? "https"
+            : "http";
+    $host = $_SERVER["HTTP_HOST"] ?? "localhost";
+    $script = $_SERVER["SCRIPT_NAME"] ?? "";
+    $base = preg_replace(
+        "#/usine_industriel/.*#",
+        "/usine_industriel/",
+        $script,
+    );
+    define("BASE_URL", $protocol . "://" . $host . $base);
 }
 
-// Niveau 1: Vérification que l'utilisateur est connecté
-// Si pas de session utilisateur, redirection vers la page de connexion
-if (!isset($_SESSION['user'])) {
-    header('Location: ' . BASE_URL . 'auth/login.php');
-    exit;
+// ===== VÉRIFICATION 1 : Utilisateur connecté ? =====
+// Si $_SESSION['user'] n'existe pas → pas connecté → redirection login
+if (!isset($_SESSION["user"])) {
+    header("Location: " . BASE_URL . "auth/login.php");
+    exit(); // Toujours mettre exit() après une redirection
 }
 
-// Niveau 2: Vérification du rôle (si la variable $allowed_roles est définie par la page)
-// Si le rôle de l'utilisateur n'est pas dans la liste des rôles autorisés, redirection vers l'accueil
-if (isset($allowed_roles) && !in_array($_SESSION['user']['role'], $allowed_roles)) {
-    header('Location: ' . BASE_URL . 'index.php');
-    exit;
+// ===== VÉRIFICATION 2 : Bon rôle ? (optionnel) =====
+// Si $allowed_roles est défini dans la page, on vérifie le rôle
+// Exemple: $allowed_roles = ['admin', 'manager'];
+if (isset($allowed_roles)) {
+    // Si le rôle de l'utilisateur n'est pas dans $allowed_roles → redirection accueil
+    if (!in_array($_SESSION["user"]["role"], $allowed_roles)) {
+        header("Location: " . BASE_URL . "index.php");
+        exit();
+    }
+}
+
+// ===== FONCTIONS HELPER =====
+
+/**
+ * Vérifie si l'utilisateur a un rôle spécifique
+ * Usage: if (hasRole('admin')) { ... }
+ */
+function hasRole(string $role): bool
+{
+    return isset($_SESSION["user"]["role"]) &&
+        $_SESSION["user"]["role"] === $role;
 }
 
 /**
- * Fonction helper: vérifie si l'utilisateur a un rôle spécifique
- * 
- * @param string $role Le rôle à vérifier
- * @return bool True si l'utilisateur a ce rôle, false sinon
+ * Vérifie si l'utilisateur a l'un des rôles
+ * Usage: if (hasAnyRole(['admin', 'manager'])) { ... }
  */
-function hasRole(string $role): bool {
-    return isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === $role;
+function hasAnyRole(array $roles): bool
+{
+    return isset($_SESSION["user"]["role"]) &&
+        in_array($_SESSION["user"]["role"], $roles);
 }
 
-/**
- * Fonction helper: vérifie si l'utilisateur a un des rôles spécifiés
- * 
- * @param array $roles Tableau des rôles à vérifier
- * @return bool True si l'utilisateur a un des rôles, false sinon
- */
-function hasAnyRole(array $roles): bool {
-    return isset($_SESSION['user']['role']) && in_array($_SESSION['user']['role'], $roles);
-}
+// Maintenant la page est protégée et les fonctions hasRole() et hasAnyRole() sont disponibles
